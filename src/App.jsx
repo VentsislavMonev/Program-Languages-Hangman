@@ -43,6 +43,7 @@ function App() {
         <LanguageList list ={languageElements}/>
         <Chars array = {charElements} />
         <Keyboard array = {alphabetElements} />
+        <button className='new-game-bttn'>New Game</button>
       </div>
     </>
   )
