@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { clsx } from "clsx"
 import Header from './components/Header'
 import Status from './components/Status'
 import LanguageList from './components/LanguagesList'
@@ -7,33 +8,69 @@ import Keyboard from './components/Keyboard';
 
 import languages from './languages'
 
-/**
- * Goal: Build out the main parts of our app
- * 
- * Challenge: 
- * Display the keyboard ⌨️. Use <button>s for each letter
- * since it'll need to be clickable and tab-accessible.
- */
-
-
 function App() {
-  const[randomWord,setRandomWord] = useState("react");
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  const alphabetElements = Array.from(alphabet.toUpperCase()).map (char => (
-    <li className='key'>
-      <button className='key-button'> {char}</button>
-    </li>
-  ))
+  const [randomWord,setRandomWord] = useState("react");
+  const [guessedLetters, setGuessedLetters] = useState([]);
 
-  console.log(alphabetElements);
+  console.log(guessedLetters);
+  console.log(randomWord)
+
+
+  const wrongGuessCount = guessedLetters.filter((char) => !randomWord.includes(char)).length
+  console.log(wrongGuessCount);
   
 
-  const charElements = Array.from(randomWord.toUpperCase()).map( (char) => (
-    // key={}
-    <span className='char-span' >
-      {char}
+  const languageElements = languages.map( (lang,index) =>
+  {
+    const className = clsx({
+        language_li: true,
+        lost: index<wrongGuessCount
+      })
+
+    return (<li
+        key={lang.name}
+        style=  {{backgroundColor: lang.backgroundColor,
+                color: lang.color,}}
+        className={className}>
+        <p>{lang.name}</p>
+    </li> )
+  })
+
+  function addGuessedLetter(letter) {
+      //setGuessedLetters(oldGuessedLetters => oldGuessedLetters.includes(char) ? [...oldGuessedLetters] : [...oldGuessedLetters, char])
+      setGuessedLetters(oldGuessedLetters => {
+        const lettersSet = new Set(oldGuessedLetters)
+        lettersSet.add(letter)
+        return Array.from(lettersSet)
+      })
+  }
+
+  // keyboard alphabet element map 
+  const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  const alphabetElements = Array.from(alphabet).map ((char,index) => {
+    
+    const className = clsx({
+      guessed: randomWord.includes(char) && guessedLetters.includes(char),
+      wrong:!randomWord.includes(char) && guessedLetters.includes(char),
+      key: true
+    })
+
+    return (
+    <button key={index} onClick={() => addGuessedLetter(char)} className={className} > 
+      {char.toUpperCase()} 
+    </button>
+    )
+  })
+  
+  // random word chars part
+  const charElements = Array.from(randomWord).map( (char,index) => (
+    <span className='char-span' key={index}>
+      {guessedLetters.includes(char) ? char.toUpperCase() : ''}
     </span>
   ));
+
+
+
 
   return (
     <>
@@ -48,18 +85,6 @@ function App() {
     </>
   )
 }
-
-const languageElements = languages.map( (lang) =>
-(
-  <li
-      className='language-li'
-      key={lang.name}
-      style=  {{backgroundColor: lang.backgroundColor,
-              color: lang.color,}}>
-      <p>{lang.name}</p>
-  </li>
-))
-  
 
 
 export default App
