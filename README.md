@@ -1,16 +1,49 @@
-# React + Vite
+# 🕹️ Assembly: Endgame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dramatic and fun twist on **Hangman**, built with **React**.  
+Your mission: **guess the secret word in a few attempts — or lose a programming language forever**.  
+Fail too many times, and you’ll be left with the one and only… **Assembly**. 🛠️😨
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+*https://hangman-program-languages.netlify.app/*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**
+- **JavaScript**
+- **HTML & CSS**
+- **vite**
+
+---
+
+## ✨ Features
+
+- 🎯 **Guess the word** letter by letter — classic Hangman mechanics.  
+- 💀 **Every wrong guess eliminates a programming language**, shown visually.  
+- 🧠 **Win by solving the word** before all languages are wiped out.  
+- 😭 **Lose and you're stuck with Assembly**, with a GAME OVER screen.  
+- 🎨 Clean UI with color-coded keyboard and highlighted clues.
+
+---
+
+## 🧠 What I Learned
+
+- Managing **game state** with React (`useState`, `useEffect`).  
+- Updating UI dynamically based on **correct / incorrect guesses**.  
+- Handling on-screen **keyboard interactions** and letter locking.  
+- Structuring a small game using modular React components.  
+- Improving UX with **status indicators**.
+
+---
+
+## 📌 What Could Be Improved
+
+- Add **difficulty levels** (easy / medium / hard).  
+- Add **word categories** (programming, movies, mythology, etc.).  
+- Store best performance with **localStorage**.
+
