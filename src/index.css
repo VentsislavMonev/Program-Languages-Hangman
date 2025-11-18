@@ -45,7 +45,13 @@ body {
 
 /* ------------------------WRAPPER------------------------ */
 
-
+.main-wrapper{
+  width: 90vmax;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ------------------------HEADER------------------------ */
 
@@ -285,27 +291,33 @@ body {
 @media (max-width: 649px) {
 
 
+  body {
+    margin: 0 2rem 0 2rem;
+  }
 
+  .keyboard {
+    max-width: 23rem;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-.keyboard {
-  max-width: 23rem;
-  
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+    gap: .75rem;
+    margin-top: 2rem;
+    list-style: none;
+  }
 
-  gap: .75rem;
-  margin-top: 2rem;
-  list-style: none;
-}
+  .key {
+    padding: 0.6rem;
+    aspect-ratio: 1.8;
+  }
 
-.key {
-  padding: 0.6rem;
-  aspect-ratio: 1.8; /* Makes keys square */
-}
   .languages-list {
-    width: 80%;
+    width: 50%;
+
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .new-game-bttn {
@@ -313,7 +325,7 @@ body {
   }
 
   .status {
-    width: 80%;
+    width: 60%;
   }
 
   .chars {
@@ -325,18 +337,19 @@ body {
   }
 
   .char_span {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     padding: 1rem;
 
     height: 2.5rem;
     width: 2.5rem;
 
     text-align: center;
+
     font-weight: 700;
-
-    background-color: var(--chars-bg-color);
-
-    color: var(--chars-down-border-color);
-    border-bottom: 1px solid var(--chars-down-border-color);
   }
 
   .main-wrapper{
