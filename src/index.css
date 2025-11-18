@@ -53,6 +53,38 @@ body {
   justify-content: center;
 }
 
+/* ------------------------LANGUAGE BTN------------------------ */
+
+.language-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+
+  padding: 0.25rem 0.5rem;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--subheader-color);
+  
+  border: 2px solid currentColor;
+  border-radius: 0.25rem;
+
+  background: transparent;
+
+  cursor: pointer;
+  
+  transition: all 0.2s;
+}
+
+.language-toggle:hover {
+  background: var(--key-default-color);
+  transform: scale(1.05);
+}
+
+.language-toggle:active {
+  transform: scale(0.95);
+}
+
 /* ------------------------HEADER------------------------ */
 
 .header {
@@ -75,6 +107,7 @@ body {
 }
 
 .header h3 {
+  width: 100%;
   font-size: 1rem;
   text-align: center;
   color: var(--subheader-color);
@@ -84,8 +117,6 @@ body {
 /* ------------------------STATUS------------------------ */
 
 .status {
-  /* margin-top: 1rem; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,6 +124,7 @@ body {
   text-align: center;
   border-radius: 4px;
 
+  padding:  0.75rem 1rem;
   padding-block: .75rem;
 
   width: 40%;
@@ -207,8 +239,10 @@ body {
   width: 100%;
   max-width: 600px;
 
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: .75rem;
 
   padding: 1rem;
@@ -321,11 +355,11 @@ body {
   }
 
   .new-game-bttn {
-    width: 60%;
+    max-width: 60%;
   }
 
   .status {
-    width: 60%;
+    max-width: 60%;
   }
 
   .chars {
@@ -361,8 +395,11 @@ body {
   }
 
   .header h1 {
+    max-width: 80%;
     margin-top: 3rem;
   }
 
-
+  .header h3{
+    max-width: 80%;
+  }
 }
