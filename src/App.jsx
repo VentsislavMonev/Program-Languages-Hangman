@@ -22,7 +22,6 @@ function App() {
   const alphabet = isBulgarianOn ? bulgarianAlphabet : engAlphabet
   const getFarewellText =  isBulgarianOn ? getBgFarewellText : getEngFarewellText
   //
-  
 
   const [randomWord,setRandomWord] = useState(()=>getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
@@ -103,16 +102,21 @@ function App() {
   
 
   // This checks if the window is resized so the confetti arent bugged
-    useEffect(() => {
-      const handleResize = () => {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      };
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(()=> {
+    resetGame()
+  }, [isBulgarianOn]);
+
 
 
   // FUNCTIONS
@@ -140,13 +144,11 @@ function App() {
 
   return (
     <>
-      {isGameWon && <Confetti recycle={false} numberOfPieces={1000} width={windowSize.width} height={windowSize.height} />}
+      {isGameWon && <Confetti recycle={false} numberOfPieces={10000} width={windowSize.width} height={windowSize.height} />}
       <div className='main-wrapper'>
-        <button 
-          onClick={() => {
-              setIsBulgarianOn(!isBulgarianOn)
-              resetGame()}
-            }
+        <button onClick={() => {
+            setIsBulgarianOn(!isBulgarianOn)
+          }}
           className="language-toggle"
           aria-label={isBulgarianOn ? "Switch to English" : "Превключи на български"}
         >
