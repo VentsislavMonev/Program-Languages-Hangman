@@ -6,7 +6,7 @@ export default function Hedaer(props)
                 props.isBulgarianOn 
                 ? (<>
                     <h1>Асемблер: финал</h1>
-                    <h3>Познай думата под {props.numGuessesLeft} опита, за да предпазиш света на програмирането на Асемблер!</h3>
+                    <h3>Познай думата под {props.numGuessesLeft} опита, за да предпазиш света от програмирането на Асемблер!</h3>
                   </>)                
                 : (<>
                     <h1>Assembly: Endgame</h1>

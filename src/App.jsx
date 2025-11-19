@@ -143,7 +143,10 @@ function App() {
       {isGameWon && <Confetti recycle={false} numberOfPieces={1000} width={windowSize.width} height={windowSize.height} />}
       <div className='main-wrapper'>
         <button 
-          onClick={() => setIsBulgarianOn(!isBulgarianOn)}
+          onClick={() => {
+              setIsBulgarianOn(!isBulgarianOn)
+              resetGame()}
+            }
           className="language-toggle"
           aria-label={isBulgarianOn ? "Switch to English" : "Превключи на български"}
         >
